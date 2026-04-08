@@ -1,0 +1,28 @@
+<script>
+
+	var player = prompt("Digite sua escolha: Pedra (1); Papel (2); Tesoura (3)");
+	var bot = Math.floor(Math.random() * 3) + 1;
+	//alert(bot);
+
+	if (player == bot)
+	{
+		alert("Empate");
+	}
+	else
+	{
+		if ((player == 1 && bot == 2) || (player == 2 && bot == 1))
+		{
+			alert("Paper cobre a pedra");
+		}
+		if ((player == 1 && bot == 3) || (player == 3 && bot == 1))
+		{
+			alert("Pedra quebra tesoura");
+		}
+		if ((player == 2 && bot == 3) || (player == 3 && bot == 2))
+		{
+			alert("Tesoura corta papel");
+		}
+	}
+
+
+</script>
