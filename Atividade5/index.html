@@ -1,0 +1,108 @@
+<body>
+	<form id="form">
+		<div style="margin-bottom: 10px">
+			<label for="idade">Idade</label>
+			<input type="number" id="idade">
+		</div>
+		
+		<div style="margin-bottom: 10px">
+			<label for="sexo">Sexo</label>
+			<select id="sexo" name="sexo">
+			  <option value="M" selected>Masculino</option>
+			  <option value="F">Feminino</option>
+			  <option value="O">Outros</option>
+			</select>
+		</div>
+		
+		<div style="margin-bottom: 10px">
+			<label for="opiniao">Opinião</label>
+			<select id="opiniao" name="opiniao">
+			  <option value="4" selected>Ótimo</option>
+			  <option value="3">Bom</option>
+			  <option value="2">Regular</option>
+			  <option value="1">Péssimo</option>
+			</select>
+		</div>
+		
+		<div style="margin-bottom: 10px">
+			<button type="submit">Enviar</button>
+		</div>
+	</form>
+	
+	<hr />
+	
+	<p>Média da idade das pessoas: <span id="media"></span> </p>
+	<p>Idade da pessoa mais velha: <span id="maisVelha"></span> </p>
+	<p>Idade da pessoa mais nova: <span id="maisNova"></span> </p>
+	<p>Quantidade de pessoas que responderam péssimo: <span id="pessimo"></span> </p>
+	<p>Porcentagem de pessoas que responderam ótimo e bom: <span id="porcentagem"></span> </p>
+	<p>Numero de mulheres: <span id="mulheres"></span> </p>
+	<p>Numero de homens: <span id="homens"></span> </p>
+	<p>Numero de outros: <span id="outros"></span> </p>
+</body>
+
+
+<script>
+	const respostas = [];
+
+	const form = document.getElementById("form");
+
+	form.addEventListener("submit", function(e) {
+		e.preventDefault();
+		
+		const idade = Number(document.getElementById("idade").value);
+		const sexo = document.getElementById("sexo").value;
+		const opiniao = Number(document.getElementById("opiniao").value);
+		
+		const resposta = {
+			idade: idade,
+			sexo: sexo,
+			opiniao: opiniao
+		};
+		
+		respostas.push(resposta);
+		
+		atualizar();
+		
+		form.reset();
+	});
+	
+	function atualizar() {
+		if (respostas.length === 0) return;
+
+		let somaIdades = 0;
+		let maior = respostas[0].idade;
+		let menor = respostas[0].idade;
+		let pessimo = 0;
+		let otimoBom = 0;
+		let mulheres = 0;
+		let homens = 0;
+		let outros = 0;
+
+		respostas.forEach(r => {
+			somaIdades += r.idade;
+
+			if (r.idade > maior) maior = r.idade;
+			if (r.idade < menor) menor = r.idade;
+
+			if (r.opiniao === 1) pessimo++;
+			if (r.opiniao === 3 || r.opiniao === 4) otimoBom++;
+
+			if (r.sexo === "F") mulheres++;
+			else if (r.sexo === "M") homens++;
+			else outros++;
+		});
+
+		const media = somaIdades / respostas.length;
+		const porcentagem = (otimoBom / respostas.length) * 100;
+
+		document.getElementById("media").innerText = media.toFixed(2);
+		document.getElementById("maisVelha").innerText = maior;
+		document.getElementById("maisNova").innerText = menor;
+		document.getElementById("pessimo").innerText = pessimo;
+		document.getElementById("porcentagem").innerText = porcentagem.toFixed(1) + "%";
+		document.getElementById("mulheres").innerText = mulheres;
+		document.getElementById("homens").innerText = homens;
+		document.getElementById("outros").innerText = outros;
+	}
+</script>
