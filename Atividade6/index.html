@@ -1,0 +1,29 @@
+<script>
+	function triangulo(a, b, c) {
+		if (isNaN(a) || isNaN(b) || isNaN(c)) {
+			return "Informe apenas números";
+		}
+		
+		if (a < b + c && a > Math.abs(b - c) &&
+			b < a + c && b > Math.abs(a - c) &&
+			c < a + b && c > Math.abs(a - b))
+		{
+			if (a == b && b == c) {
+				return "Triângulo Equilátero";
+			}
+			else if (a != b && b != c && c != a) {
+				return "Triângulo Escaleno";
+			}
+			else {
+				return "Triângulo Isósceles";
+			}
+		}
+		else {
+			return "Não é um triângulo";
+		}
+	}
+	
+	let msg = triangulo(prompt("Primeiro número"), prompt("Segundo número"), prompt("Terceiro número"));
+	
+	alert(msg);
+</script>
