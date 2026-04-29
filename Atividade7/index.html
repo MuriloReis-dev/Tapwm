@@ -1,0 +1,32 @@
+<script src="script.js"></script>
+
+<body>
+	<button onclick="maiorNum_al()">Maior Número</button>
+	<button onclick="cresc_al()">Ordenação</button>
+	<button onclick="palindromo_al()">Palindromo</button>
+	<button onclick="subconj_al()">Subconjunto</button>
+	<button onclick="data_al()">Dia da Semana</button>
+</body>
+
+<script>
+	function maiorNum_al() {
+		alert(maiorNum(prompt("Primeiro número"), prompt("Segundo número"), prompt("Terceiro número")));
+	}
+	
+	function cresc_al() {
+		alert(cresc(prompt("Primeiro número"), prompt("Segundo número"), prompt("Terceiro número")));
+	}
+	
+	function palindromo_al() {
+		alert(palindromo(prompt("Texto")));
+	}
+
+	function subconj_al() {
+		alert(subconj(prompt("Primeira palavra"), prompt("Segunda palavra")));
+	}
+	
+	function data_al() {
+		alert(diaSemana(prompt("Data")));
+	}
+
+</script>
