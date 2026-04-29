@@ -1,0 +1,30 @@
+
+<body>
+	<button onclick="btnViewArray()">1)</button>
+	<button onclick="btnPalavras()">2)</button>
+</body>
+
+
+<script>
+	function btnViewArray() {
+		alert(viewArray.apply(null, [prompt("Primeiro Número"), prompt("Segundo Número"), prompt("Terceiro Número")]));
+	}
+
+	// 1)
+	function viewArray(num1, num2, num3) {
+		let array = [num1, num2, num3];
+		
+		var soma = 0;
+		
+		array.foreach(el => {
+			soma += el;
+		});
+		
+		return "A soma dos três números é " + soma + ", o quadrado do primeiro é " + (array[0] * array[0]) + " e o quadrado do segundo é " + (array[1] * array[1]);
+	}
+	
+	// 2)
+	function palavras(array) {
+		
+	}
+</script>
