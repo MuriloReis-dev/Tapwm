@@ -1,0 +1,290 @@
+/* ── Variáveis (customize aqui) ─────────────────────────────── */
+:root {
+  --cor-primaria:    #2563eb;   /* azul — botão principal, foco */
+  --cor-primaria-hover: #1d4ed8;
+  --cor-erro:        #dc2626;   /* vermelho — mensagens de erro */
+  --cor-sucesso:     #16a34a;   /* verde — banner de sucesso    */
+  --cor-texto:       #1e293b;   /* cor base do texto            */
+  --cor-texto-suave: #64748b;   /* labels, subtítulos           */
+  --cor-borda:       #cbd5e1;   /* bordas de inputs             */
+  --cor-fundo:       #f8fafc;   /* fundo da página              */
+  --cor-fundo-form:  #ffffff;   /* fundo do formulário          */
+  --cor-fieldset:    #f1f5f9;   /* fundo dos fieldsets          */
+
+  --radius:   8px;              /* arredondamento geral         */
+  --sombra:   0 2px 8px rgba(0, 0, 0, 0.08);
+  --fonte:    'Segoe UI', system-ui, sans-serif;
+  --max-form: 680px;            /* largura máxima do form       */
+}
+
+/* ── Reset básico ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+/* ── Container principal ─────────────────────────────────────── */
+.container {
+  max-width: var(--max-form);
+  margin: 0 auto;
+}
+
+/* ── Cabeçalho do formulário ─────────────────────────────────── */
+.form-header {
+  margin-bottom: 1.5rem;
+}
+
+.form-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.form-subtitle {
+  color: var(--cor-texto-suave);
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+/* ── Formulário ──────────────────────────────────────────────── */
+form {
+  background: var(--cor-fundo-form);
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Fieldsets (seções) ──────────────────────────────────────── */
+fieldset {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.25rem 1rem;
+  background-color: var(--cor-fieldset);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cor-texto-suave);
+  padding: 0 0.5rem;
+}
+
+/* ── Grupos de campo ─────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Linha com 2 colunas lado a lado */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Grupo inline (checkbox + label) */
+.form-group--inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Labels ──────────────────────────────────────────────────── */
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+.label-block {
+  display: block;
+}
+
+.required {
+  color: var(--cor-erro);
+  margin-left: 2px;
+}
+
+/* ── Inputs, Select, Textarea ────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="file"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: var(--fonte);
+  color: var(--cor-texto);
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Estado inválido (após tentativa de envio) */
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 2rem;
+}
+
+/* ── Radio & Checkbox ────────────────────────────────────────── */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.radio-label,
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+/* ── Range / Slider ──────────────────────────────────────────── */
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--cor-primaria);
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  margin-top: 0.2rem;
+}
+
+/* ── Input file ──────────────────────────────────────────────── */
+input[type="file"] {
+  padding: 0.4rem 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+small {
+  font-size: 0.78rem;
+  color: var(--cor-texto-suave);
+}
+
+/* ── Ações do formulário ─────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+/* ── Botões ──────────────────────────────────────────────────── */
+.btn {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-borda);
+}
+
+.btn--secondary:hover {
+  background-color: var(--cor-borda);
+}
+
+/* ── Responsivo (mobile) ─────────────────────────────────────── */
+@media (max-width: 520px) {
+  form {
+    padding: 1.25rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
