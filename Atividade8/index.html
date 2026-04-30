@@ -1,30 +1,89 @@
 
-<body>
-	<button onclick="btnViewArray()">1)</button>
-	<button onclick="btnPalavras()">2)</button>
-</body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade8</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
 
+    <main class="container">
+      <header class="form-header">
+        <h1>Atividade8</h1>
+      </header>
 
-<script>
-	function btnViewArray() {
-		alert(viewArray.apply(null, [prompt("Primeiro Número"), prompt("Segundo Número"), prompt("Terceiro Número")]));
-	}
+      <form id="first-form" novalidate>
 
-	// 1)
-	function viewArray(num1, num2, num3) {
-		let array = [num1, num2, num3];
-		
-		var soma = 0;
-		
-		array.foreach(el => {
-			soma += el;
-		});
-		
-		return "A soma dos três números é " + soma + ", o quadrado do primeiro é " + (array[0] * array[0]) + " e o quadrado do segundo é " + (array[1] * array[1]);
-	}
-	
-	// 2)
-	function palavras(array) {
-		
-	}
-</script>
+        <!-- SECTION 1 -->
+        <fieldset>
+          <legend>Array com 3 Números</legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="num1">Primeiro Número</label>
+              <input type="number" id="num1" />
+            </div>
+            <div class="form-group">
+              <label for="num2">Segundo Número</label>
+              <input type="number" id="num2" />
+            </div>
+            <div class="form-group">
+              <label for="num3">Terceiro Número</label>
+              <input type="number" id="num3" />
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="form-actions">
+            <button type="reset" class="btn btn--secondary">Limpar</button>
+            <button type="submit" class="btn btn--primary">Enviar</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <form id="second-form" novalidate>
+        <!-- SECTION 2 -->
+        <fieldset>
+          <legend>5 Letras</legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="l1">Primeira Letra</label>
+              <input type="text" id="l1" maxlength="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="l2">Segunda Letra</label>
+              <input type="text" id="l2" maxlength="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="l3">Terceira Letra</label>
+              <input type="text" id="l3" maxlength="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="l4">Quarta Letra</label>
+              <input type="text" id="l4" maxlength="1" />
+            </div>
+
+            <div class="form-group">
+              <label for="l5">Quinta Letra</label>
+              <input type="text" id="l5" maxlength="1" />
+            </div>
+          </div>
+          
+          <!-- Actions -->
+          <div class="form-actions">
+            <button type="reset" class="btn btn--secondary">Limpar</button>
+            <button type="submit" class="btn btn--primary">Enviar</button>
+          </div>
+        </fieldset>
+      </form>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
