@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<script>
+	var pessoa1 = {
+		nome: "Murilo",
+		idade: 18,
+		hobby: "tocar teclado",
+		apresentar: function() { return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}` }
+	};
+	
+	var pessoa2 = new Object();
+	pessoa2.nome = "Cleber";
+	pessoa2.idade = 20;
+	pessoa2.hobby = "dormir";
+	pessoa2.apresentar = function() { return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}` };
+	
+	function Pessoa3(nome, idade, hobby) {
+		this.nome = nome;
+		this.idade = idade;
+		this.hobby = hobby;
+		
+		this.apresentar = () => { return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}` };
+	}
+	var pessoa3 = new Pessoa3("Maria", 25, "jogar");
+	
+	class Pessoa4 {
+		constructor(nome, idade, hobby) {
+			this.nome = nome;
+			this.idade = idade;
+			this.hobby = hobby;
+		}
+		
+		apresentar() {
+			return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`;
+		}
+	}
+	pessoa4 = new Pessoa4("Beatriz", 900, "estudar");
+	
+	pessoa5 = Object.create(pessoa4);
+	pessoa5.nome = "Julho";
+	pessoa5.idade = 1;
+	pessoa5.hobby = "comer";
+	
+	alert(pessoa1.apresentar());
+	alert(pessoa2.apresentar());
+	alert(pessoa3.apresentar());
+	alert(pessoa4.apresentar());
+	alert(pessoa5.apresentar());
+</script>
