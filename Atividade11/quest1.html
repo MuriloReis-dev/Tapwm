@@ -1,0 +1,13 @@
+<script>
+	// 1)
+	function Retangulo(x, y) {
+		this.x = x;
+		this.y = y;
+		
+		this.calcArea = () => {
+			return (x * y) / 2;
+		}
+	}
+	var retangulo = new Retangulo(10, 15);
+	alert(retangulo.calcArea());
+</script>
