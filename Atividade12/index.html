@@ -1,0 +1,28 @@
+<body>
+    <h1>Abra a janela</h1>
+    <img id="img" src="fechada.jpg" style="height: 300px" />
+    <h1 id="texto">Janela Fechada</h1>
+</body>
+
+<script>
+    let img = document.getElementById("img");
+    let texto = document.getElementById("texto");
+
+    img.addEventListener("mouseover", () => {
+        img.setAttribute("src", "aberta.jpg");
+        img.setAttribute("style", "height: 300px");
+        texto.textContent = "Janela Aberta";
+    });
+
+    img.addEventListener("mouseout", () => {
+        img.setAttribute("src", "fechada.jpg");
+        img.setAttribute("style", "height: 300px");
+        texto.textContent = "Janela Fechada";
+    });
+
+    img.addEventListener("click", () => {
+        img.setAttribute("src", "quebrada.png");
+        img.setAttribute("style", "height: 300px");
+        texto.textContent = "Janela Quebrada";
+    });
+</script>
