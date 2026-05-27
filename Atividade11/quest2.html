@@ -1,0 +1,51 @@
+<script>
+	// 2)
+	class Conta {
+		getNome = function() { return this.nome; }
+		getCorrentista = function() { return this.correntista; }
+		getBanco = function() { return this.banco; }
+		getNumero = function() { return this.numero }
+		getSaldo = function() { return this.saldo; }
+		
+		setNome = function(nome) { this.nome = nome; }
+		setCorrentista = function(correntista) { this.correntista = correntista; }
+		setBanco = function(banco) { this.banco = banco; }
+		setNumero = function(numero) { this.numero = numero; }
+		setSaldo = function(saldo) { this.saldo = saldo; }
+	}
+	
+	class Corrente extends Conta {
+		getSaldoEspecial = function() { return this.saldoEspecial; }
+		
+		setSaldoEspecial = function(saldoEspecial) { this.saldoEspecial = saldoEspecial; }
+	}
+	
+	class Poupanca extends Conta {
+		getJuros = function() { return this.juros; }
+		getVencimento = function() { return this.vencimento; }
+		
+		setJuros = function(juros) { this.juros = juros; }
+		setVencimento = function(vencimento) { this.vencimento = vencimento; }
+	}
+	
+	var corrente = new Corrente();
+	corrente.setNome("jorge");
+	corrente.setCorrentista("seila");
+	corrente.setBanco("picpay");
+	corrente.setNumero(1);
+	corrente.setSaldo(0.01);
+	corrente.setSaldoEspecial(9.5);
+	
+	alert(`Conta Corrente: Nome=${corrente.getNome()}, Correntista=${corrente.getCorrentista()}, Banco=${corrente.getBanco()}, Numero=${corrente.getNumero()}, Saldo=${corrente.getSaldo()}, SaldoEspecial=${corrente.getSaldoEspecial()}`);
+	
+	var poupanca = new Poupanca();
+	poupanca.setNome("cleber");
+	poupanca.setCorrentista("naosei");
+	poupanca.setBanco("nubank");
+	poupanca.setNumero(2);
+	poupanca.setSaldo(99999999.12);
+	poupanca.setJuros(4.5);
+	poupanca.setVencimento("2026-05-20");
+
+	alert(`Conta Poupança: Nome=${poupanca.getNome()}, Correntista=${poupanca.getCorrentista()}, Banco=${poupanca.getBanco()}, Numero=${poupanca.getNumero()}, Saldo=${poupanca.getSaldo()}, Juros=${poupanca.getJuros()}, Vencimento=${poupanca.getVencimento()}`);
+</script>
