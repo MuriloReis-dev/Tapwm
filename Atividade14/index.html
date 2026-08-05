@@ -1,0 +1,72 @@
+<body style="background-color: #00bbff">
+
+<form id="form" name="form">
+	<h1 style="color: #ffffff">Formulário Principal</h1>
+	<hr>
+	
+	<div><label for="nome">Nome</label></div>
+	<input type="text" id="nome">
+	
+	<div><label for="email">Email</label></div>
+	<input type="email" id="email" style="width: 100%">
+	
+	<div><label for="comentario">Comentário</label></div>
+	<textarea id="comentario" min=20></textarea>
+	
+	<div>
+		<div>
+			<h3>Pesquisa</h3>
+		</div>
+		
+		<div class="radiogroup">
+			<h5>Primeira vez nessa página??</h5>
+			<input type="radio" id="sim" name="resp" value="sim" required>
+			<label for="sim">Sim</label><br>
+			<input type="radio" id="nao" name="resp" value="nao" required>
+			<label for="nao">Nao</label><br>
+		</div>
+	</div>
+	
+	<br>
+	
+	<input type="submit" value="Enviar">
+	<input type="reset" value="Limpar">
+</form>
+
+
+</body>
+
+<script>
+let form = document.getElementById("form");
+
+
+form.addEventListener('submit', async (event) => {
+	event.preventDefault();
+	
+
+	let nome = document.form.elements[0].value;
+	let email = document.form.elements[1].value;
+	let comentario = document.form.elements[2].value;
+	let resp = form.resp.value;
+  
+	if (nome.length < 10) {
+		alert("O nome precisa ter pelo menos 10 caracteres");
+	}
+	else if (!email.includes("@")) {
+		alert("Email inválido");
+	}
+	else if (comentario.length < 20) {
+		alert("O comentario precisa ter pelo menos 20 caracteres");
+	}
+	else {
+		if (resp == "sim") {
+			alert("Volte sempre à esta página!");
+		}
+		else {
+			alert("Que bom que você voltou a visitar esta página!");
+		}
+	}
+});
+
+
+</script>
