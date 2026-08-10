@@ -1,1 +1,50 @@
+<body>
 
+	<form name="form" id="form">
+		<select id="cursos" name="cursos" onchange="escolher()">
+			<option value="ads">ADS</option>
+			<option value="fm">Fabricação Mecânica</option>
+			<option value="gq">Gestão da Qualidade</option>
+			<option value="l">Logística</option>
+			<option value="ma">Manutenção de Aeronaves</option>
+			<option value="sb">Sistemas Biomédicos</option>
+		</select>
+	
+	
+	</form>
+	
+	<script>
+
+	let select = document.getElementById("cursos");
+
+	function escolher() {
+		switch (select.value) {
+			case "ads":
+				if (confirm("Quer abrir a página de ADS?"))
+					window.location.href = "./ads.html";
+				break;
+			case "fm":
+				if (confirm("Quer abrir a página de Fabricação Mecânica?"))
+					window.location.href = "./fm.html";
+				break;
+			case "gq":
+				if (confirm("Quer abrir a página de Gestão da Qualidade?"))
+					window.location.href = "./gq.html";
+				break;
+			case "l":
+				if (confirm("Quer abrir a página de Logística?"))
+					window.location.href = "./l.html";
+				break;
+			case "ma":
+				if (confirm("Quer abrir a página de Manutenção de Aeronaves?"))
+					window.location.href = "./ma.html";
+				break;
+			case "sb":
+				if (confirm("Quer abrir a página de Sistemas Biomédicos?"))
+					window.location.href = "./sb.html";
+				break;
+		}
+	}
+
+	</script>
+</body>
