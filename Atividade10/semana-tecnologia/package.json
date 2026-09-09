@@ -1,0 +1,20 @@
+{
+  "name": "semana-tecnologia",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Murilo Reis Schiavotto",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx nodemon app.js",
+    "test": "npm start"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
